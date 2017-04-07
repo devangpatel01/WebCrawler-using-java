@@ -12,7 +12,7 @@ public class DB {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/Crawler";
-			conn = DriverManager.getConnection(url, "dxp2106", "Jhandu123#");
+			conn = DriverManager.getConnection(url, "username", "password");
 			System.out.println("conn built");
 		} catch (SQLException e) {
 			e.printStackTrace();
