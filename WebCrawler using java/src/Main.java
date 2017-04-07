@@ -51,7 +51,7 @@ public class Main {
 				if(link.attr("href").contains("faculty") && !link.attr("href").contains("www.uta") && !link.attr("href").contains("mailto:")
 						&& !link.attr("href").contains(".pdf") && link.attr("abs:href").length()<150
 						&& !link.attr("href").contains(".mp4")){
-					//goes to only those links that have mit.edu and doesn't start with mailto: and length<150 and is not a pdf link
+					//goes to only those links that have faculty and doesn't start with mailto: and length<150 and is not a pdf link
 					//System.out.println(link.attr("abs:href"));
 					try {
 						if(Node.isRepeatedNode(root,link.attr("abs:href").toString()) == 0){
