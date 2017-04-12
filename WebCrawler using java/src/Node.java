@@ -57,6 +57,52 @@ public class Node {
 		return 1;
   }
  
+//Utility function that will return the depth
+//of the tree
+public static int depthOfTree(Node node)
+{
+  // Base case
+  if (node == null)
+      return 0;
+
+  int maxdepth = 0;
+
+  // Check for all children and find
+  // the maximum depth
+  for (Node each : node.getChildren())
+	  maxdepth = Math.max(maxdepth , depthOfTree(each));
+
+  return maxdepth + 1;
+}
+
+//Function to calculate the diameter
+//of the tree
+public static int diameter(Node node)
+{
+  // Base case
+  if (node == null)
+      return 0;
+
+  // Find top two highest children
+  int max1 = 0, max2 = 0;
+  for (Node each : node.getChildren())
+  {
+      int h = depthOfTree(each);
+      if (h > max1){
+    	  max2 = max1;
+       	  max1 = h;
+      }
+      else if (h > max2)
+         max2 = h;
+  }
+
+  // Iterate over each child for diameter
+  int maxChildDia = 0;
+  for (Node each : node.getChildren())
+      maxChildDia = Math.max(maxChildDia, diameter(each));
+
+  return Math.max(maxChildDia, max1 + max2 + 1);
+}
  
  
 }
