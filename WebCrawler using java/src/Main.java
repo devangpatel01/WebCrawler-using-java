@@ -19,6 +19,7 @@ public class Main {
 		root = treeRootNode;
 		processPage("http://cse.uta.edu",treeRootNode);
 		Node.printTree(root);
+		System.out.printf("Diameter of the N-ary tree constructed using traversed links is: %d", Node.diameter(root));
 	}
  
 	public static void processPage(String URL,Node parent) throws SQLException, IOException{
@@ -51,7 +52,7 @@ public class Main {
 				if(link.attr("href").contains("faculty") && !link.attr("href").contains("www.uta") && !link.attr("href").contains("mailto:")
 						&& !link.attr("href").contains(".pdf") && link.attr("abs:href").length()<150
 						&& !link.attr("href").contains(".mp4")){
-					//goes to only those links that have faculty and doesn't start with mailto: and length<150 and is not a pdf link
+					//goes to only those links that have mit.edu and doesn't start with mailto: and length<150 and is not a pdf link
 					//System.out.println(link.attr("abs:href"));
 					try {
 						if(Node.isRepeatedNode(root,link.attr("abs:href").toString()) == 0){
@@ -75,5 +76,6 @@ public class Main {
  References: 
  http://techieme.in/tree-diameter/
  http://programtalk.com/java/java-tree-implementation/
+ http://www.geeksforgeeks.org/diameter-n-ary-tree/
  */
  
